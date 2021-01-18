@@ -82,6 +82,7 @@
       menuCointainer.appendChild(thisProduct.element);
     }
 
+
     initAccordion(){
       const thisProduct = this;
 
@@ -89,12 +90,12 @@
       const clickableTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
 
       /* START: add event listener to clickable trigger on event click  */
-      thisProduct.clickableTrigger.addeventListener('click', function(event){
+      clickableTrigger.addeventListener('click', function(event){
 
         /* prevent default action for event */
         event.preventDefault;
         /* find active product (product that has active class) */
-        const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
+        const activeProducts = document.querySelectorAll('select.all.menuProductsActive');
         /* if there is active product and it's not thisProduct.element, remove class active from it */
         for(let activeProduct of activeProducts){
           if(activeProduct !== null && activeProduct != thisProduct.element){
@@ -125,7 +126,6 @@
     },
 
 
-
     init: function(){
       const thisApp = this;
       console.log('*** App starting ***');
@@ -137,7 +137,6 @@
 
       thisApp.initData();
       thisApp.initMenu();
-      thisApp.initAccordion();
     },
   };
 
