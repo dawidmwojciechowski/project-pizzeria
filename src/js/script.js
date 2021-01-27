@@ -294,13 +294,13 @@
           // const optionsSelected = formData.hasOwnProperty;
           if(optionSelected) {
             params[paramId].options[option.label] = option.label;
+          }
         }
       }
-    }
 
-    return params;
+      return params;
+    }
   }
-}
 
   class AmountWidget{
     constructor(element){
@@ -357,7 +357,7 @@
     announce(){
       const thisWidget = this;
 
-      const event = new Event('updated', {
+      const event = new CustomEvent('updated', {
         bubbles: true,
       });
       thisWidget.element.dispatchEvent(event);
@@ -379,6 +379,10 @@
       thisCart.dom.wrapper = element;
       thisCart.dom.toggleTrigger = element.querySelector(select.cart.toggleTrigger);
       thisCart.dom.productList = element.querySelector(select.cart.productList);
+      thisCart.dom.deliveryFee = element.querySelector(select.cart.deliveryFee);
+      thisCart.dom.subtotalPrice = element.querySelector(select.cart.subtotalPrice);
+      thisCart.dom.totalPrice = element.querySelector(select.cart.totalPrice);
+      thisCart.dom.totalNumber = element.querySelector(select.cart.totalNumber);
     }
 
     initActions(){
