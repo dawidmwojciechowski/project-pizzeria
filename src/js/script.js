@@ -396,6 +396,21 @@
       thisCart.dom.productList.addEventListener('updated', function () {
         thisCart.update();
       });
+
+      thisCart.dom.productList.addEventListener('remove', function() {
+        thisCart.remove(event.detail.cartProduct);
+      });
+    }
+
+    remove(cartProduct)  {
+      const thisCart = this;
+
+      const indexOfCartProduct = thisCart.products.indexOf(cartProduct);
+      console.log('index', indexOfCartProduct);
+      const removedCartProduct = thisCart.products.splice(indexOfCartProduct, 1);
+      removedCartProduct[0].dom.wrapper.remove();
+      thisCart.update();
+
     }
 
     add(menuProduct){
