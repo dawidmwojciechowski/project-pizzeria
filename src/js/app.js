@@ -1,6 +1,7 @@
 import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
   initPages: function(){
@@ -10,7 +11,7 @@ const app = {
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
-    
+
     let pageMatchingHash = thisApp.pages[0].id;
 
     for (let page of thisApp.pages){
@@ -53,7 +54,7 @@ const app = {
     /* add class "active" to matching links, remove from non-matching*/
     for(let link of thisApp.navLinks){
       link.classList.toggle(
-        classNames.nav.active, 
+        classNames.nav.active,
         link.getAttribute('href') == '#' + pageId
       );
     }
@@ -103,6 +104,7 @@ const app = {
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initBooking();
   },
 
   initCart: function(){
@@ -117,6 +119,13 @@ const app = {
       app.cart.add(event.detail.product);
     });
   },
+
+  initBooking: function (){
+    const thisApp = this;
+    const widgetContainer = document.querySelector(select.containerOf.booking);
+    thisApp.booking = new Booking(widgetContainer);
+
+  }
 };
 
 app.init();
