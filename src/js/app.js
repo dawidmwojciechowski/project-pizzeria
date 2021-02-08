@@ -101,9 +101,9 @@ const app = {
     //console.log('settings:', settings);
     //console.log('templates:', templates);
 
-    thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();
+    thisApp.initPages();
     thisApp.initBooking();
   },
 
