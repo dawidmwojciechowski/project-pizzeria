@@ -1,9 +1,8 @@
 import {select} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
 
-
-class CartProduct{
-  constructor(menuProduct, element){
+class CartProduct {
+  constructor(menuProduct, element) {
 
     const thisCartProduct = this;
 
@@ -17,9 +16,10 @@ class CartProduct{
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
     thisCartProduct.initActions();
+
   }
 
-  getElements(element){
+  getElements(element) {
     const thisCartProduct = this;
     thisCartProduct.dom = {};
 
@@ -81,6 +81,7 @@ class CartProduct{
     };
 
     return products;
+
   }
 }
 

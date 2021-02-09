@@ -7,6 +7,7 @@ class BaseWidget{
     thisWidget.dom.wrapper = wrapperElement;
 
     thisWidget.correctValue = initialValue;
+
   }
 
   get value(){
@@ -15,14 +16,13 @@ class BaseWidget{
     return thisWidget.correctValue;
   }
 
-  set value (value){
+  set value (value) {
     const thisWidget = this;
 
     const newValue = thisWidget.parseValue(value);
 
-    /* TODO: Add validation */
-
-    if (newValue != thisWidget.correctValue && thisWidget.isValid(newValue)){
+    // TODO: Add validation
+    if(newValue != thisWidget.correctValue && thisWidget.isValid(newValue) ) {
       thisWidget.correctValue = newValue;
       thisWidget.announce();
     }
@@ -30,7 +30,7 @@ class BaseWidget{
     thisWidget.renderValue();
   }
 
-  setValue(value){
+  setValue (value) {
     const thisWidget = this;
 
     thisWidget.value = value;
@@ -38,20 +38,16 @@ class BaseWidget{
 
   parseValue(value){
     return parseInt(value);
-
   }
-
 
   isValid(value){
     return !isNaN(value);
   }
 
-
   renderValue(){
     const thisWidget = this;
 
     thisWidget.dom.wrapper.innerHTML = thisWidget.value;
-
   }
 
   announce(){
