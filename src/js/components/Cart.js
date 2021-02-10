@@ -89,12 +89,11 @@ class Cart{
       thisCart.subtotalPrice = number.price + thisCart.subtotalPrice;
     }
 
+    thisCart.totalPrice = thisCart.deliveryFee + thisCart.subtotalPrice;
+
     for (const elem of thisCart.dom.totalPrice){
       elem.innerHTML = thisCart.totalPrice;
     }
-
-    thisCart.totalPrice = thisCart.deliveryFee + thisCart.subtotalPrice;
-
 
     thisCart.dom.deliveryFee.innerHTML = thisCart.deliveryFee;
     thisCart.dom.subtotalPrice.innerHTML = thisCart.subtotalPrice;
